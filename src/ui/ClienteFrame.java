@@ -19,7 +19,7 @@ public class ClienteFrame extends JFrame {
 
     public ClienteFrame() {
         super("Cadastro de Clientes");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setSize(600, 400);
         setLayout(new BorderLayout());
 
@@ -71,7 +71,8 @@ public class ClienteFrame extends JFrame {
 
             if (!nome.isEmpty() && !cpfCnpj.isEmpty() && !endereco.isEmpty()) {
                
-                listaModel.addElement(new Cliente(nome, cpfCnpj, endereco));
+                int id = listaModel.size() + 1; // Simple ID generation
+                listaModel.addElement(new Cliente( id, nome, cpfCnpj, endereco));
                 campoNome.setText("");
                 campoCpfCnpj.setText("");
                 campoEndereco.setText("");
